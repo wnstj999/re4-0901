@@ -10,7 +10,11 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(bodyParser.json());
 
 // Mock 사용자 데이터
-const users = [{ id: 1, username: "admin", password: "1234" }];
+const users = [
+  { id: 1, username: "admin", password: "1234" },
+  { id: 2, username: "test", password: "1234" }
+
+];
 
 // 로그인 API
 app.post("/api/login", (req, res) => {
@@ -27,6 +31,8 @@ app.post("/api/login", (req, res) => {
   });
 
   res.json({ token });
+
+  console.log("123", token);
 });
 
 // 보호된 API 예시
